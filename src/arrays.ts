@@ -5,7 +5,14 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    const length = numbers.length;
+    if (length === 0) {
+        return [];
+    } else if (length === 1) {
+        return [numbers[0], numbers[0]];
+    } else {
+        return [numbers[0], numbers[length - 1]];
+    }
 }
 
 /**
@@ -13,7 +20,7 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    return numbers;
+    return numbers.map((number: number): number => number * 3);
 }
 
 /**
@@ -21,9 +28,11 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    return numbers.map((value: string): number => {
+        const newNumber = parseInt(value);
+        return isNaN(newNumber) ? 0 : newNumber;
+    });
 }
-
 /**
  * Consume an array of strings and return them as numbers. Note that
  * the strings MAY have "$" symbols at the beginning, in which case
@@ -32,7 +41,11 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    return amounts.map((amount: string) => {
+        const changedAmount = amount.startsWith("$") ? amount.slice(1) : amount;
+        const parsedInt = parseInt(changedAmount);
+        return isNaN(parsedInt) ? 0 : parsedInt;
+    });
 };
 
 /**
@@ -41,7 +54,19 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const transformedMessage = messages.map((message: string) => {
+        if (message.endsWith("!")) {
+            return message.toUpperCase();
+        } else if (message.endsWith("?")) {
+            return "null";
+        } else {
+            return message;
+        }
+    });
+    const newMessages = transformedMessage.filter(
+        (message) => message !== "null"
+    );
+    return newMessages;
 };
 
 /**
@@ -49,16 +74,24 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    const shortWords = words.filter((word) => word.length < 4);
+    return shortWords.length;
 }
 
 /**
  * Consumes an array of colors (e.g., 'red', 'purple') and returns true if ALL
  * the colors are either 'red', 'blue', or 'green'. If an empty list is given,
  * then return true.
- */
+ *
+ **/
+
 export function allRGB(colors: string[]): boolean {
-    return false;
+    if (colors.length === 0) {
+        return true;
+    }
+    return colors.every(
+        (color) => color === "red" || color === "blue" || color === "green"
+    );
 }
 
 /**
@@ -69,7 +102,9 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    const sum = addends.reduce((acc, curr) => acc + curr, 0);
+    const numbersString = addends.join("+");
+    return `${sum}=${numbersString || "0"}`;
 }
 
 /**
@@ -82,5 +117,18 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const FirstNegInd = values.findIndex((value: number) => value < 0);
+    const thing = [...values];
+    const sum = thing.reduce(
+        (sum: number, value: number) =>
+            values.findIndex((val: number) => val === value) < FirstNegInd ||
+            FirstNegInd === -1
+                ? sum + value
+                : sum,
+        0
+    );
+    FirstNegInd === -1
+        ? thing.push(sum)
+        : thing.splice(FirstNegInd + 1, 0, sum);
+    return thing;
 }
