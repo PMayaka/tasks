@@ -32,6 +32,7 @@ export function getNonEmptyQuestions(questions: Question[]): Question[] {
  * Consumes an array of questions and returns the question with the given `id`. If the
  * question is not found, return `null` instead.
  */
+
 export function findQuestion(
     questions: Question[],
     id: number

@@ -1,6 +1,12 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./App.css";
+import { ChangeType } from "./components/ChangeType";
+import { RevealAnswer } from "./components/RevealAnswer";
+import { StartAttempt } from "./components/StartAttempt";
+import { TwoDice } from "./components/TwoDice";
+import { CycleHoliday } from "./components/CycleHoliday";
+import { Counter } from "./components/Counter";
 
 function App(): JSX.Element {
     return (
@@ -9,41 +15,18 @@ function App(): JSX.Element {
                 UD CISC275 with React Hooks and TypeScript (Phillip Bund
                 Mayaka.) Hello World
             </header>
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
-            </p>
-
-            <h1> Header text </h1>
-
-            <img
-                src="https://i.pinimg.com/originals/3d/16/8b/3d168b95b673a750b38bbdd30be06fc3.jpg"
-                alt="picture of a monkey"
-                width="200"
-                height="200"
-            />
-
-            <ul>
-                <li>McDonalds</li>
-                <li>ChickFilA</li>
-                <li>Wendys</li>
-            </ul>
-            <Button onClick={() => console.log("Hello World!")}>
-                Log Hello World
-            </Button>
-
-            <Container>
-                <Row>
-                    <Col>
-                        {"First Column"}
-                        <div className="Rectangle">Stuff In First Column</div>
-                    </Col>
-                    <Col>
-                        {"Second Column"}
-                        <div className="Rectangle">Stuff In Second Column</div>
-                    </Col>
-                </Row>
-            </Container>
+            <hr></hr>
+            <Counter></Counter>
+            <hr />
+            <RevealAnswer></RevealAnswer>
+            <hr />
+            <StartAttempt></StartAttempt>
+            <hr />
+            <TwoDice></TwoDice>
+            <hr />
+            <ChangeType></ChangeType>
+            <hr />
+            <CycleHoliday></CycleHoliday>
         </div>
     );
 }
