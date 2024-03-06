@@ -15,14 +15,6 @@ function App(): JSX.Element {
                 UD CISC275 with React Hooks and TypeScript (Phillip Bund
                 Mayaka.) Hello World
             </header>
-<<<<<<< HEAD
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
-            </p>
-
-=======
->>>>>>> upstream/task-state
             <hr></hr>
             <Counter></Counter>
             <hr />
