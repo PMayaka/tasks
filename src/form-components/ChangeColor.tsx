@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Form, Row, Col } from "react-bootstrap";
+import { Form, Col } from "react-bootstrap";
+//what are they talking about part 2
+//i have no clue
 
 export function ChangeColor(): JSX.Element {
     const COLORS = [
@@ -12,6 +14,7 @@ export function ChangeColor(): JSX.Element {
         "magenta",
         "teal"
     ];
+
     const DEFAULT_COLOUR = COLORS[0];
     const [color, setColor] = useState<string>(DEFAULT_COLOUR);
 
@@ -37,15 +40,17 @@ export function ChangeColor(): JSX.Element {
                     checked={color === colorZ}
                 />
             ))}
-            <p>
-                You have chosen{" "}
-                <span
-                    data-testid="colored-box"
-                    style={{ backgroundColor: color }}
-                >
-                    {color}
-                </span>
-            </p>
+            <col>
+                <p>
+                    You have chosen{" "}
+                    <span
+                        data-testid="colored-box"
+                        style={{ backgroundColor: color }}
+                    >
+                        {color}
+                    </span>
+                </p>
+            </col>
         </div>
     );
 }
