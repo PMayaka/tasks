@@ -40,7 +40,7 @@ export function ChangeColor(): JSX.Element {
                     checked={color === colorZ}
                 />
             ))}
-            <col>
+            <Col>
                 <p>
                     You have chosen{" "}
                     <span
@@ -50,7 +50,7 @@ export function ChangeColor(): JSX.Element {
                         {color}
                     </span>
                 </p>
-            </col>
+            </Col>
         </div>
     );
 }
