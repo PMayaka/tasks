@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { BlockLike } from "typescript";
 import { Form, Col, Row } from "react-bootstrap";
-import exp from "constants";
+//what are they talking about
 
 export function CheckAnswer({
     expectedAnswer
